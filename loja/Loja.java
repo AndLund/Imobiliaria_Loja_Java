@@ -146,19 +146,21 @@ public class Loja {
     private void remover(){
         System.out.println("\nXXXXXXX REMOVENDO CLIENTE XXXXXXX");
         int indice=0;
-        
-        System.out.println("\nEscolha o numero do registro que você deseja remover:\n");
-        
-        for(Pessoa p: pessoas){
-            System.out.println(indice + " - " + p + '\n');
-            indice++;
+        if(pessoas.isEmpty()){
+            System.out.println("Até o momento nenhum registro foi realizado.\n");
+        }else{
+            System.out.println("\nEscolha o numero do registro que você deseja remover:\n");
+
+            for(Pessoa p: pessoas){
+                System.out.println(indice + " - " + p + '\n');
+                indice++;
+            }
+            int escolha = input.nextInt();
+            pessoas.remove(escolha);
+            System.out.println('\n');
+            //para conferir se foi removido (funcionou)
+            //System.out.println(pessoas);
         }
-        
-        int escolha = input.nextInt();
-        pessoas.remove(escolha);
-        System.out.println('\n');
-        //para conferir se foi removido (funcionou)
-        //System.out.println(pessoas);
     }
     
     private void buscar(){
