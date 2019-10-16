@@ -1,39 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package loja;
 
-/**
- *
- * @author anderson
- */
-public class Funcionario {
-    private String nome;
-    private String cpf;
+public abstract class Funcionario extends Pessoa {
+    private int matricula;
     private double salario;
 
-    public Funcionario(String nome, String cpf, double salario) {
-        this.nome = nome;
-        this.cpf = cpf;
+    public Funcionario(int matricula, double salario, String nome, String cpf) {
+        super(nome, cpf);
+        this.matricula = matricula;
         this.salario = salario;
     }
 
-    public String getNome() {
-        return nome;
+    public int getMatricula() {
+        return matricula;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
     }
 
     public double getSalario() {
@@ -43,14 +25,11 @@ public class Funcionario {
     public void setSalario(double salario) {
         this.salario = salario;
     }
-    
-    public double calculaPagamento(){
-        return salario*1.03;
+
+    @Override
+    public String toString() {
+        return "matricula: " + matricula + super.toString() + ", salario: " + salario;
     }
     
-    public String toString(){
-        //faz alguma coisa
-        return "FUncionario "+"nome = "+getNome()+" cpf = "+getCpf()+" salario = "+getSalario();
-    }
-    
+    public abstract double calculaPagamento(double s);
 }

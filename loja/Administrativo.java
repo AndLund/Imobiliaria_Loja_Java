@@ -1,19 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package loja;
 
-/**
- *
- * @author anderson
- */
 public class Administrativo extends Funcionario {
     private double horas;
 
-    public Administrativo(String nome, String cpf, double salario, double horas) {
-        super(nome,cpf,salario);
+    public Administrativo(int matricula,  String nome, String cpf, double salario, double horas) {
+        super(matricula, salario, nome, cpf);
         this.horas = horas;
     }
 
@@ -24,14 +16,14 @@ public class Administrativo extends Funcionario {
     public void setHoras(double horas) {
         this.horas = horas;
     }
-    
+
     @Override
-    public double calculaPagamento(){
-        return (super.calculaPagamento()+horas*(getSalario()*0.01));
+    public String toString() {
+        return "Administrativo{" + super.toString() + ", horas: " + horas + '}';
     }
-    
+
     @Override
-    public String toString(){
-        return "Administrativo "+getNome()+" ganha "+getSalario()+" reais";
+    public double calculaPagamento(double s){
+        return (super.getSalario()+horas*(super.getSalario()*0.01));
     }
 }
