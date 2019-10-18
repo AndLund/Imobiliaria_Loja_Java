@@ -19,7 +19,7 @@ public class Administrativo extends Funcionario {
 
     @Override
     public String toString() {
-        return "Administrativo{" + super.toString() + ", horas: " + horas + '}';
+        return "Administrativo {" + super.toString() + ", horas: " + horas + '}';
     }
 
     @Override

@@ -120,7 +120,6 @@ public class Loja {
                     double salV= input.nextDouble();
                     System.out.println("HORAS:");
                     double vendas = input.nextDouble();
-                    verificando = false;
                     
                     Vendedor v;
                     v = new Vendedor(matV,nomeV,cpfV,salV,vendas);
@@ -135,8 +134,8 @@ public class Loja {
             }
             System.out.println('\n');
             System.out.println("Deseja realizar um novo cadastro(s/n)?");
-            char newCad =  input.next().charAt(0); //p ler apenas 1 caracter.
-            if(newCad == 's'){
+            //char newCad =  input.next().charAt(0); //p ler apenas 1 caracter.
+            if(/*newCad == 's'*/input.next().charAt(0) == 's'){
                 verificando = true;
             }
             System.out.println('\n');
@@ -152,8 +151,8 @@ public class Loja {
             System.out.println("\nEscolha o numero do registro que você deseja remover:\n");
 
             for(Pessoa p: pessoas){
-                System.out.println(indice + " - " + p + '\n');
-                indice++;
+                System.out.println(indice++ + " - " + p + '\n');
+                //indice++;
             }
             int escolha = input.nextInt();
             pessoas.remove(escolha);
@@ -176,12 +175,19 @@ public class Loja {
     }
     
     private Pessoa buscar(String cpf){
+        for(Pessoa p : pessoas){
+            if(p.getCpf().equals(cpf))
+                return p;
+        }
+        return null;
+        
+        /*
         for(int i = 0; i < pessoas.size();i++){
             if(pessoas.get(i).getCpf().contains(cpf)){ //KKKKKKKKKKKKKKKKKKKKKK
                 return pessoas.get(i);
             }
         }
-        return null;
+        return null;*/
     }
     
     private void listar(){
@@ -191,8 +197,8 @@ public class Loja {
             System.out.println("Até o momento nenhum registro foi realizado.\n");
         }else{
             for(Pessoa p: pessoas){
-                System.out.println(indice + " - " + p + '\n');
-                indice++;
+                System.out.println(indice++ + " - " + p + '\n');
+                //indice++;
             }
         }
     }

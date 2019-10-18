@@ -19,7 +19,7 @@ public class Vendedor extends Funcionario{
 
     @Override
     public String toString() {
-        return "Vendedor{" + super.toString() + ", vendas: " + vendas + '}';
+        return "Vendedor {" + super.toString() + ", vendas: " + vendas + '}';
     }
     
     @Override
