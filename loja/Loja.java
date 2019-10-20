@@ -134,8 +134,8 @@ public class Loja {
             }
             System.out.println('\n');
             System.out.println("Deseja realizar um novo cadastro(s/n)?");
-            //char newCad =  input.next().charAt(0); //p ler apenas 1 caracter.
-            if(/*newCad == 's'*/input.next().charAt(0) == 's'){
+            
+            if(input.next().charAt(0) == 's'){
                 verificando = true;
             }
             System.out.println('\n');
@@ -152,13 +152,10 @@ public class Loja {
 
             for(Pessoa p: pessoas){
                 System.out.println(indice++ + " - " + p + '\n');
-                //indice++;
             }
             int escolha = input.nextInt();
             pessoas.remove(escolha);
             System.out.println('\n');
-            //para conferir se foi removido (funcionou)
-            //System.out.println(pessoas);
         }
     }
     
